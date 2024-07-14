@@ -129,10 +129,10 @@ feather.replace({
   <div class="icon">
     <div class="first">Let's<br>Connect!</div>
     <div class="second">
-      <div class="square-1"><a href="http://www.linkedin.com/in/shabari-k-s"><h1><i class="bi bi-linkedin"></i></h1></a></div>
-      <div class="square-2"><a href="https://www.instagram.com/_.sourcecode._/"><h1><i class="bi bi-instagram"></i></h1></a></div>
-      <div class="square-3"><a href="https://app.hackthebox.com/profile/1104708"><h1><i class="bi bi-box"></i></h1></a></div>
-      <div class="square-4"><a href="https://github.com/Shabari-K-S"><h1><i class="bi bi-github"></i></h1></a></div>
+      <div class="square-1"><a href="http://www.linkedin.com/in/shabari-k-s" target="_blank"><h1><i class="bi bi-linkedin"></i></h1></a></div>
+      <div class="square-2"><a href="https://www.instagram.com/_.sourcecode._/" target="_blank"><h1><i class="bi bi-instagram"></i></h1></a></div>
+      <div class="square-3"><a href="https://app.hackthebox.com/profile/1104708" target="_blank"><h1><i class="bi bi-box"></i></h1></a></div>
+      <div class="square-4"><a href="https://github.com/Shabari-K-S" target="_blank"><h1><i class="bi bi-github"></i></h1></a></div>
     </div>
   </div>
 </div>
