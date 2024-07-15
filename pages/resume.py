@@ -1,13 +1,4 @@
 import streamlit as st
-from PIL import Image
-import base64
-import io
-import json
-from streamlit_lottie import st_lottie
-
-def load_lottie_file(filepath: str):
-    with open(filepath) as f:
-        return json.load(f)
 
 st.set_page_config(page_title='Portfolio', page_icon='😎', layout='wide')
 
@@ -118,6 +109,10 @@ li {
     color: white; /* Or a color you prefer */
 }
 
+li {
+    width: 100%;
+}
+
 </style>
 <p class="heading">
 SUMMARY
@@ -173,34 +168,24 @@ EDUCATION
 <hr>
 """
 )
-r1 = st.columns([3,9])
+def education(year:str, name:str, course:str, grade:str):
+    with st.container():
+        r1 = st.columns([2,9])
+        with r1[0]:
+            st.subheader(year)
+        with r1[1]:
+            st.subheader(f":blue[{name}]")
+            st.html(f"<p class='passage-1'>{course}")
+            st.write(f"{grade}")
 
-with r1[0]:
-    st.subheader("2021 - 2025")
-    st.write("###")
-    st.write("###")
-    st.subheader("2020-2021")
-    st.write("###")
-    st.write("###")
-    st.subheader("2018-2019")
-    st.write("###")
 
-with r1[1]:
-    st.subheader(":blue[Knowledge Institute of Technology, Salem]")
-    st.html("<p class='passage-1'>B.E Computer Science and Engineering")
-    st.write("CGPA : 8/10 ")
-    st.subheader(":blue[Bharathi Vidyalaya Higher Secondary School, Salem]")
-    st.html("<p class='passage-1'>HSC")
-    st.write("Percentage : 80 %")
-    st.subheader(":blue[Bala Bharathi Matriculation Higher Secondary School, Salem]")
-    st.html("<p class='passage-1'>SSLC")
-    st.write("Percentage : 72.3 %")
-
+education("2021 - 2025", "Knowledge Institute of Technology, Salem", "B.E Computer Science and Engineering", "CGPA : 8/10")
+education("2020 - 2021", "Bharathi Vidyalaya Higher Secondary School, Salem", "HSC", "Percentage : 80 %")
+education("2018 - 2019", "Bala Bharathi Matriculation Higher Secondary School, Salem", "SSLC", "Percentage : 72.3 %")
 
 
 st.html(
 """
-
 <p class="heading">
 SKILLS
 </p>
@@ -211,7 +196,7 @@ r2 = st.columns([1,6,9])
 with r2[1]:
     st.html(
 """
-<ul>
+<ul style="margi-left:10px">
 <li>Python (Advanced)</li>
 <li>C / C++ (Basic)</li>
 <li>HTML / CSS / JavaScript</li>
@@ -221,7 +206,7 @@ with r2[1]:
 with r2[2]:
     st.html(
 """
-<ul>
+<ul style="margi-left:10px">
 <li>Java (Intermediate)</li>
 <li>Basic Communication Skills</li>
 <li>React</li>
@@ -237,50 +222,23 @@ CERTIFICATIONS
 """
 )
 
-r3 = st.columns([1,9])
-with r3[0]:
-    st.subheader("2023")
-    st.write("###")
-    st.subheader("2023")
-    st.write("###")
-    st.subheader("2022")
-    st.write("###")
-    st.subheader("2022")
-    st.write("###")
-    st.subheader("2022")
-    st.write("###")
-    st.subheader("2022")
-    st.write("###")
-    st.subheader("2019")
-    st.write("###")
-    st.subheader("2019")
-    st.write("###")
-    
+def certification(date: str,name:str, desc:str):
+    with st.container():
+        r1 = st.columns([1,9])
+        with r1[0]:
+            st.subheader(date)
+        with r1[1]:
+            st.subheader(name)
+            st.html(f"<p class='passage-1'>{desc}")
 
-with r3[1]:
-    st.subheader("Foundation of AIML - Naan Mudhalvan")
-    st.html("<p class='passage-1' style='margin-top:-10px'>I learned Fundamentals and basic concepts in Artificial Intelligence and Machine Learning</p>")
-
-    st.subheader("INTRODUCTION TO IT & CYBERSECURITY - CYBRARY")
-    st.html("<p class='passage-1' style='margin-top:-10px;margin-bottom:20px;'>Upskilled myself to the world of cyber security</p>")
-
-    st.subheader("JAVA – HACKER RANK")
-    st.html("<p class='passage-1' style='margin-top:-10px'>Earned 5 star successfully in Hacker Rank</p>")
-
-    st.subheader("PYTHON – HACKER RANK")
-    st.html("<p class='passage-1' style='margin-top:-10px;margin-bottom:20px;'>Earned 5 star successfully in Hacker Rank</p>")
-    
-    st.subheader("CISCO NETWORK ACADEMY – PYTHON ESSENTIAL - INTERNSHIP")
-    st.html("<p class='passage-1' style='margin-top:-10px;margin-bottom:15px;'>Cisco Virtual Intern on the topic of PCAP: Programming Essential In Python</p>")
-
-    st.subheader("CYBER SECURITY – INTERNSHIP")
-    st.html("<p class='passage-1' style='margin-top:-10px;margin-bottom:25px;'>I have successfully completed my project in Verzeo intenship based on cyber security</p>")
-
-    st.subheader("PGDCA")
-    st.html("<p class='passage-1' style='margin-top:-10px;margin-bottom:20px;'>I got my Certificate of Post Graduate Diploma in Computer Applications in Computer center</p>")
-
-    st.subheader("DHN")
-    st.html("<p class='passage-1' style='margin-top:-10px'>I got my Certificate of Diploma in Hardware & Networking	in Computer center</p>")
+certification("2023", "Foundation of AIML - Naan Mudhalvan", "I learned Fundamentals and basic concepts in Artificial Intelligence and Machine Learning")
+certification("2023", "INTRODUCTION TO IT & CYBERSECURITY - CYBRARY", "Upskilled myself to the world of cyber security")
+certification("2022", "JAVA – HACKER RANK", "Earned 5 star successfully in Hacker Rank")
+certification("2022", "PYTHON – HACKER RANK", "Earned 5 star successfully in Hacker Rank")
+certification("2022", "CISCO NETWORK ACADEMY – PYTHON ESSENTIAL - INTERNSHIP", "Cisco Virtual Intern on the topic of PCAP: Programming Essential In Python")
+certification("2022", "CYBER SECURITY – INTERNSHIP", "I have successfully completed my project in Verzeo intenship based on cyber security")
+certification("2019", "PGDCA", "I got my Certificate of Post Graduate Diploma in Computer Applications in Computer center")
+certification("2019", "DHN", "I got my Certificate of Diploma in Hardware & Networking	in Computer center")
 
 st.html(
 """
@@ -309,19 +267,16 @@ HONORS AND AWARDS
 """
 )
 
-r5 = st.columns([1,9])
-with r5[0]:
-    st.subheader("July 2023")
-    st.write("###")
-    st.subheader("July 2023")
-    st.write("###")
+def honors(date:str, name:str, desc:str):
+    with st.container():
+        r1 = st.columns([1,9])
+        with r1[0]:
+            st.subheader(date)
+        with r1[1]:
+            st.subheader(name)
+            st.html(f"<p class='passage-1'>{desc}")
 
-with r5[1]:
-    st.subheader("AKERVA FORTRESSES – HACK THE BOX")
-    st.html("<p class='passage-1' style='margin-top:-10px'>I've pwned the Akerva fortress on Hack The Box! After many fails and persistent effort, I successfully breached its defenses and emerged victorious!</p>")
-    
-    st.subheader("FARADAY FORTRESSES – HACK THE BOX")
-    st.html("<p class='passage-1' style='margin-top:-10px'>I've pwned the Faraday fortress on Hack The Box!, I successfully breached its defenses and emerged victorious!</p>")
-
-    st.subheader("ACHIEVER’S AWARD")
-    st.html("<p class='passage-1' style='margin-top:-10px'>I got this award in my college Knowledge Institute Of Technology</p>")
+honors("2023", "AKERVA FORTRESSES – HACK THE BOX", "I've pwned the Akerva fortress on Hack The Box! After many fails and persistent effort, I successfully breached its defenses and emerged victorious!")
+honors("2023", "FARADAY FORTRESSES – HACK THE BOX", "I've pwned the Faraday fortress on Hack The Box!, I successfully breached its defenses and emerged victorious!")
+honors("2023", "ACHIEVER’S AWARD", "I got this award in my college Knowledge Institute Of Technology")
+honors("2024", "CERTIFICATE OF APPRECIATION", "I got this award in my college Knowledge Institute Of Technology")
